@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your existing head content here -->
+</head>
+<body>
+    <div class="login-container">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login_user"])) {
+            // Retrieve values from the form
+            $reg = $_POST["REG"];
+            $password = $_POST["PASSWORD"];
+
+            // Check if the provided credentials are correct
+            if ($reg == "CSBS" && $password == "SRKRIT") {
+                echo "<h1>Login successful!</h1>";
+            } else {
+                echo "<h1>Invalid REG or PASSWORD. Please try again.</h1>";
+            }
+        }
+        ?>
+        <form method="post" action="">
+            <h1>DIGITAL LIBRARY</h1>
+            <div class="input-group">
+                <label for="REG">REG:</label>
+                <input type="text" id="REG" name="REG" />
+            </div>
+
+            <div class="input-group">
+                <label for="PASSWORD">PASSWORD:</label>
+                <input type="password" id="PASSWORD" name="PASSWORD" />
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn" name="login_user">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
